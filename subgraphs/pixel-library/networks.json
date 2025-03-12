@@ -1,0 +1,20 @@
+{
+  "matic": {
+    "PixelDesignData": {
+      "address": "0x8436FbbD8bb753D8D0bdb98762Dff1F20f2feFbd",
+      "startBlock": 56843937
+    },
+    "PixelOrderData": {
+      "address": "0x15c7f9cc23288919e586ABe92013dd23ECB87Cf1",
+      "startBlock": 56843939
+    },
+    "PixelSplitData": {
+      "address": "0x7a5eF54253ed8DBb02eE3A5Cf215ba612BEf8cf8",
+      "startBlock": 57402500
+    },
+    "PixelCommunityData": {
+      "address": "0xDF427211F145758c1d3BB7652F5bA4633F9C09ee",
+      "startBlock": 56843954
+    }
+  }
+}

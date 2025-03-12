@@ -1,0 +1,28 @@
+type AccessControlUpdated @entity(immutable: true) {
+  id: Bytes!
+  _oldAccessControl: Bytes! # address
+  _newAccessControl: Bytes! # address
+  admin: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type DailyMappingsAdded @entity(immutable: true) {
+  id: Bytes!
+  _topMirrorers: String! # string
+  _topCollectors: String! # string
+  _topPosters: String! # string
+  _unique: String! # string
+  _highestSpend: String! # string
+  _amountToCollect: String! # string
+  _amountToCollect72: String! # string
+  _topFollowed: String! # string
+  _revenueChange: String! # string
+  _graph: String! # string
+  _count: BigInt! # uint256
+  admin: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

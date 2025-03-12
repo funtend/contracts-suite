@@ -1,0 +1,15 @@
+**/build
+**/coverage
+**/artifacts
+
+# storage
+storage
+
+# cache
+.cache
+cache
+
+# deps
+node_modules
+.pnp.*
+.yarn/*

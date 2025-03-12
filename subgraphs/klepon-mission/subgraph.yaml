@@ -1,0 +1,75 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: KleponOpenAction
+    network: matic
+    source:
+      address: "0xD02505f3b126b6D81b1140c5e8a620ebE9Ed02b9"
+      abi: KleponOpenAction
+      startBlock: 56874861
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - NewFactoryDeployment
+        - PlayerCompletedMilestone
+        - PlayerCompletedMission
+        - PlayerJoinedMission
+        - MissionInitialized
+      abis:
+        - name: KleponOpenAction
+          file: ./abis/KleponOpenAction.json
+      eventHandlers:
+        - event: NewFactoryDeployment(address,address,address,address,address)
+          handler: handleNewFactoryDeployment
+      file: ./src/klepon-open-action.ts
+templates:
+  - name: KleponMissionData
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: KleponMissionData
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/klepon-mission-data.ts
+      entities:
+        - KleponMissionData
+      abis:
+        - name: KleponMissionData
+          file: ./abis/KleponMissionData.json
+      eventHandlers:
+        - event: MilestoneCompleted(uint256,uint256,uint256)
+          handler: handleMilestoneCompleted
+        - event: PlayerEligibleToClaimMilestone(uint256,uint256,uint256,bool)
+          handler: handlePlayerEligibleToClaimMilestone
+        - event: PlayerJoinedMission(uint256,uint256)
+          handler: handlePlayerJoinedMission
+        - event: PlayerMetricsUpdated(uint256,uint256,uint256)
+          handler: handlePlayerMetricsUpdated
+        - event: MissionInstantiated(uint256,uint256)
+          handler: handleMissionInstantiated
+        - event: MissionStatusUpdated(uint256,uint8)
+          handler: handleMissionStatusUpdated
+        - event: MissionCompleted(uint256,uint256)
+          handler: handleMissionCompleted
+        - event: MissionDeleted(uint256)
+          handler: handleMissionDeleted
+  - name: MissionMetadata
+    kind: file/ipfs
+    mapping:
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/ds-handlers.ts
+      handler: handleMissionMetadata
+      entities:
+        - MissionMetadata
+      abis:
+        - name: KleponMissionData
+          file: ./abis/KleponMissionData.json

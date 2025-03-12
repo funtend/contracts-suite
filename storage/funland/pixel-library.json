@@ -1,0 +1,16 @@
+[
+  {
+    "pixelAccess": "0x35178430783E07c9a8933bfC61b0C00c9c4860E1",
+    "pixelDesign": "0x8436FbbD8bb753D8D0bdb98762Dff1F20f2feFbd",
+    "pixelCommunity": "0xDF427211F145758c1d3BB7652F5bA4633F9C09ee",
+    "pixelOrder": "0x15c7f9cc23288919e586ABe92013dd23ECB87Cf1",
+    "pixelSplit": "0x7a5eF54253ed8DBb02eE3A5Cf215ba612BEf8cf8",
+    "nftCreator": "0x67FF73F5e29D8740edAF590438a5790Af2cd8Be8",
+    "collectionCreator": "0x5e68C86ab699E996347d4dCe3Cf28934437ea3ab",
+    "marketCreator": "0x384fa5E4655f9A1cF3Db04612F4001CFcB6be052",
+    "communityCreator": "0x37722096f9f5294AC300F755FCEE73D4Ab655253"
+  },
+  {
+    "fiatPKPAddress": "0x15584102a2b2300aa3acc1d4aa1548cf679453f5"
+  }
+]

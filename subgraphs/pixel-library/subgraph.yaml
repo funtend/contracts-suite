@@ -1,0 +1,203 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: PixelDesignData
+    network: matic
+    source:
+      address: "0x8436FbbD8bb753D8D0bdb98762Dff1F20f2feFbd"
+      abi: PixelDesignData
+      startBlock: 56843937
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - CollectionCreated
+        - CollectionDeleted
+        - CollectionMintedTokensSet
+        - CollectionTokenIdsSet
+        - DropCollectionsUpdated
+        - DropCreated
+        - DropDeleted
+        - TokensMinted
+      abis:
+        - name: PixelDesignData
+          file: ./abis/PixelDesignData.json
+        - name: PixelSplitData
+          file: ./abis/PixelSplitData.json
+      eventHandlers:
+        - event: CollectionCreated(indexed uint256,uint256,uint256,string,uint256,address)
+          handler: handleCollectionCreated
+        - event: CollectionDeleted(uint256)
+          handler: handleCollectionDeleted
+        - event: CollectionMintedTokensSet(indexed uint256,uint256)
+          handler: handleCollectionMintedTokensSet
+        - event: CollectionTokenIdsSet(indexed uint256,uint256[])
+          handler: handleCollectionTokenIdsSet
+        - event: DropCollectionsUpdated(uint256,uint256[],uint256[],string)
+          handler: handleDropCollectionsUpdated
+        - event: DropCreated(uint256,string,address)
+          handler: handleDropCreated
+        - event: DropDeleted(uint256)
+          handler: handleDropDeleted
+        - event: TokensMinted(indexed uint256,uint256)
+          handler: handleTokensMinted
+      file: ./src/pixel-design-data.ts
+  - kind: ethereum
+    name: PixelOrderData
+    network: matic
+    source:
+      address: "0x15c7f9cc23288919e586ABe92013dd23ECB87Cf1"
+      abi: PixelOrderData
+      startBlock: 56843939
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - NFTOnlyOrderCreated
+        - OrderCreated
+        - SubOrderIsFulfilled
+        - UpdateNFTOnlyOrderMessage
+        - UpdateOrderDetails
+        - UpdateOrderMessage
+        - UpdateSubOrderStatus
+      abis:
+        - name: PixelOrderData
+          file: ./abis/PixelOrderData.json
+        - name: PixelDesignData
+          file: ./abis/PixelDesignData.json
+      eventHandlers:
+        - event: NFTOnlyOrderCreated(uint256,uint256,address,uint256,uint256,address)
+          handler: handleNFTOnlyOrderCreated
+        - event: OrderCreated(uint256,uint256,address,uint256,uint256,address)
+          handler: handleOrderCreated
+        - event: SubOrderIsFulfilled(indexed uint256)
+          handler: handleSubOrderIsFulfilled
+        - event: UpdateNFTOnlyOrderMessage(indexed uint256,string)
+          handler: handleUpdateNFTOnlyOrderMessage
+        - event: UpdateOrderDetails(indexed uint256,string)
+          handler: handleUpdateOrderDetails
+        - event: UpdateOrderMessage(indexed uint256,string)
+          handler: handleUpdateOrderMessage
+        - event: UpdateSubOrderStatus(indexed uint256,uint8)
+          handler: handleUpdateSubOrderStatus
+      file: ./src/pixel-order-data.ts
+  - kind: ethereum
+    name: PixelSplitData
+    network: matic
+    source:
+      address: "0x7a5eF54253ed8DBb02eE3A5Cf215ba612BEf8cf8"
+      abi: PixelSplitData
+      startBlock: 57402500
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - CurrencyAdded
+        - CurrencyRemoved
+        - DesignerSplitSet
+        - FulfillerBaseSet
+        - FulfillerSplitSet
+        - OracleUpdated
+        - TreasurySplitSet
+      abis:
+        - name: PixelSplitData
+          file: ./abis/PixelSplitData.json
+      eventHandlers:
+        - event: CurrencyAdded(indexed address)
+          handler: handleCurrencyAdded
+        - event: CurrencyRemoved(indexed address)
+          handler: handleCurrencyRemoved
+        - event: DesignerSplitSet(address,uint8,uint256)
+          handler: handleDesignerSplitSet
+        - event: FulfillerBaseSet(address,uint8,uint256)
+          handler: handleFulfillerBaseSet
+        - event: FulfillerSplitSet(address,uint8,uint256)
+          handler: handleFulfillerSplitSet
+        - event: OracleUpdated(indexed address,uint256)
+          handler: handleOracleUpdated
+        - event: TreasurySplitSet(address,uint8,uint256)
+          handler: handleTreasurySplitSet
+      file: ./src/pixel-split-data.ts
+  - kind: ethereum
+    name: PixelCommunityData
+    network: matic
+    source:
+      address: "0xDF427211F145758c1d3BB7652F5bA4633F9C09ee"
+      abi: PixelCommunityData
+      startBlock: 56843954
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - CommunityCreated
+        - CommunityMemberAdded
+        - CommunityMemberRemoved
+        - CommunityUpdated
+      abis:
+        - name: PixelCommunityData
+          file: ./abis/PixelCommunityData.json
+      eventHandlers:
+        - event: CommunityCreated(indexed uint256,address,string)
+          handler: handleCommunityCreated
+        - event: CommunityMemberAdded(indexed uint256,address,uint256)
+          handler: handleCommunityMemberAdded
+        - event: CommunityMemberRemoved(indexed uint256,uint256)
+          handler: handleCommunityMemberRemoved
+        - event: CommunityUpdated(indexed uint256,address,string)
+          handler: handleCommunityUpdated
+      file: ./src/pixel-community-data.ts
+templates:
+  - name: CollectionMetadata
+    kind: file/ipfs
+    mapping:
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/ds-handlers.ts
+      handler: handleCollectionMetadata
+      entities:
+        - CollectionMetadata
+      abis:
+        - name: PixelDesignData
+          file: ./abis/PixelDesignData.json
+  - name: DropMetadata
+    kind: file/ipfs
+    mapping:
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/ds-handlers.ts
+      handler: handleDropMetadata
+      entities:
+        - DropMetadata
+      abis:
+        - name: PixelDesignData
+          file: ./abis/PixelDesignData.json
+  - name: CommunityMetadata
+    kind: file/ipfs
+    mapping:
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/ds-handlers.ts
+      handler: handleCommunityMetadata
+      entities:
+        - CommunityMetadata
+      abis:
+        - name: PixelDesignData
+          file: ./abis/PixelDesignData.json
+  - name: OrderMetadata
+    kind: file/ipfs
+    mapping:
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/ds-handlers.ts
+      handler: handleOrderMetadata
+      entities:
+        - OrderMetadata
+      abis:
+        - name: PixelDesignData
+          file: ./abis/PixelDesignData.json

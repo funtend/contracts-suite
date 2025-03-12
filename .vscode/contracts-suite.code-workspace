@@ -1,0 +1,64 @@
+{
+  "folders": [
+    {
+      "name": "⏏ ~/root",
+      "path": "../"
+    },
+    {
+      "name": "❖ @storage",
+      "path": "../storage"
+    },
+    {
+      "name": "◆ @contracts/funland",
+      "path": "../smart-contracts/funland"
+    },
+    {
+      "name": "◆ @contracts/canvas",
+      "path": "../smart-contracts/canvas"
+    },
+    {
+      "name": "◆ @contracts/blankon",
+      "path": "../smart-contracts/blankon"
+    },
+    {
+      "name": "◇ @subgraphs/pixel-library",
+      "path": "../subgraphs/pixel-library"
+    },
+    {
+      "name": "◇ @subgraphs/neon-grants",
+      "path": "../subgraphs/neon-grants"
+    },
+    {
+      "name": "◇ @subgraphs/klepon-mission",
+      "path": "../subgraphs/klepon-mission"
+    },
+    {
+      "name": "◇ @subgraphs/blank-canvas",
+      "path": "../subgraphs/blank-canvas"
+    },
+    {
+      "name": "◇ @subgraphs/blankon-disket",
+      "path": "../subgraphs/blankon-disket"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "smart-contracts/": true,
+      "subgraphs/": true,
+      "storage/": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/.yarn": true,
+      "**/.cache": true,
+      "**/build": true,
+      "**/cache": true,
+      "**/artifacts": true,
+      "*-lock.yaml": true,
+      "*.lock": true
+    },
+    "editor.quickSuggestions": {
+      "strings": true
+    }
+  }
+}

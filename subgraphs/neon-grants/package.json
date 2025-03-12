@@ -1,0 +1,23 @@
+{
+  "name": "@subgraphs/neon-grants",
+  "version": "1.1.0",
+  "license": "AGPL-3.0-only",
+  "private": true,
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ neon-grants",
+    "create-local": "graph create --node http://localhost:8020/ neon-grants",
+    "remove-local": "graph remove --node http://localhost:8020/ neon-grants",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 neon-grants",
+    "test": "graph test"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.71.2",
+    "@graphprotocol/graph-ts": "0.35.1"
+  },
+  "devDependencies": {
+    "matchstick-as": "0.5.0"
+  },
+  "packageManager": "yarn@4.7.0"
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "machineAccessControl": "0x6367C624F1dcD6Dbd6D004ac43b6B17670867635",
+    "neonAccessControl": "0xD99a8843bc5176857d9071ec0d07E56de7B26d6A",
+    "neonData": "0xc31f49140a8723D141eB92F7e60CD661d392e988",
+    "neonMilestoneEscrow": "0x2E572EBB9a1CEd7a8520a82a7c30d4f0e7A0B525",
+    "neonMachineCreditSwap": "0xA75c3d18Fa4B8827f3f41334e52169a41a7791C4"
+  },
+  {
+    "neonOpenAction": "0x6F32bfd394eC76eE6d1f416228DeF531170d50cf"
+  },
+  {
+    "hub": "0xDb46d1Dc155634FbC732f92E853b10B288AD5a1d",
+    "moduleGlobals": "0x1eD5983F0c883B96f7C35528a1e22EEA67DE3Ff9",
+    "router": "0xE592427A0AEce92De3Edee1F18E0157C05861564"
+  }
+]

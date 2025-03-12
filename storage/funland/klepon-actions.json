@@ -1,0 +1,17 @@
+[
+  {
+    "kleponAccessControl": "0x3fB0AD37218Eb0E83dA744FF8563b411D411A372",
+    "kleponEscrow": "0x3ab91663c88ec95195f23ed54772C25EB819a362",
+    "kleponMetrics": "0x1C624654E9834Ce0d33B0D3ed7a6B46B9109F293",
+    "kleponMissionData": "0x8761BeCa5d71662e99483F86567bF348f579F52d",
+    "kleponNFTCreator": "0x4D94B48fE1A91a2fA5Ff4201ba9c567a3C94ae3B",
+    "kleponMilestoneCheckLogic": "0x1e916e56dcBD5c13eBbBA3666E9f2d99616d5adE"
+  },
+  {
+    "kleponOpenAction": "0xD02505f3b126b6D81b1140c5e8a620ebE9Ed02b9"
+  },
+  {
+    "hub": "0xDb46d1Dc155634FbC732f92E853b10B288AD5a1d",
+    "moduleGlobals": "0x1eD5983F0c883B96f7C35528a1e22EEA67DE3Ff9"
+  }
+]

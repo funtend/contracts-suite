@@ -1,0 +1,149 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: NeonData
+    network: matic
+    source:
+      address: "0xc31f49140a8723D141eB92F7e60CD661d392e988"
+      abi: NeonData
+      startBlock: 56851542
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - AllClaimedMilestone
+        - GrantCreated
+        - GrantDeleted
+        - GrantFunded
+        - MilestoneClaimed
+        - MilestoneStatusUpdated
+      abis:
+        - name: NeonData
+          file: ./abis/NeonData.json
+        - name: PixelDesignData
+          file: ./abis/PixelDesignData.json
+        - name: PixelSplits
+          file: ./abis/PixelSplits.json
+      eventHandlers:
+        - event: AllClaimedMilestone(uint256,uint8)
+          handler: handleAllClaimedMilestone
+        - event: GrantCreated(uint256,address,uint256,uint256)
+          handler: handleGrantCreated
+        - event: GrantDeleted(uint256,address)
+          handler: handleGrantDeleted
+        - event: GrantOrder(string,address,address,uint256,uint256,uint256,uint256)
+          handler: handleGrantOrder
+        - event: GrantFunded(address,address,uint256,uint256)
+          handler: handleGrantFunded
+        - event: MilestoneClaimed(address,uint8,uint256)
+          handler: handleMilestoneClaimed
+        - event: MilestoneStatusUpdated(address,uint256,uint8,uint8)
+          handler: handleMilestoneStatusUpdated
+      file: ./src/neon-data.ts
+  - kind: ethereum
+    name: PixelDesignData
+    network: matic
+    source:
+      address: "0x8436FbbD8bb753D8D0bdb98762Dff1F20f2feFbd"
+      abi: PixelDesignData
+      startBlock: 56843937
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - CollectionCreated
+        - CollectionDeleted
+        - CollectionMintedTokensSet
+        - CollectionTokenIdsSet
+        - DropCollectionsUpdated
+        - DropCreated
+        - DropDeleted
+        - TokensMinted
+      abis:
+        - name: PixelDesignData
+          file: ./abis/PixelDesignData.json
+      eventHandlers:
+        - event: CollectionCreated(indexed uint256,uint256,uint256,string,uint256,address)
+          handler: handleCollectionCreated
+        - event: CollectionDeleted(uint256)
+          handler: handleCollectionDeleted
+        - event: CollectionMintedTokensSet(indexed uint256,uint256)
+          handler: handleCollectionMintedTokensSet
+        - event: CollectionTokenIdsSet(indexed uint256,uint256[])
+          handler: handleCollectionTokenIdsSet
+        - event: DropCollectionsUpdated(uint256,uint256[],uint256[],string)
+          handler: handleDropCollectionsUpdated
+        - event: DropCreated(uint256,string,address)
+          handler: handleDropCreated
+        - event: DropDeleted(uint256)
+          handler: handleDropDeleted
+        - event: TokensMinted(indexed uint256,uint256)
+          handler: handleTokensMinted
+      file: ./src/pixel-design-data.ts
+  - kind: ethereum
+    name: PixelSplits
+    network: matic
+    source:
+      address: "0x7a5eF54253ed8DBb02eE3A5Cf215ba612BEf8cf8"
+      abi: PixelSplits
+      startBlock: 57402500
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - CurrencyAdded
+        - CurrencyRemoved
+        - DesignerSplitSet
+        - FulfillerBaseSet
+        - FulfillerSplitSet
+        - OracleUpdated
+        - TreasurySplitSet
+      abis:
+        - name: PixelSplits
+          file: ./abis/PixelSplits.json
+      eventHandlers:
+        - event: CurrencyAdded(indexed address)
+          handler: handleCurrencyAdded
+        - event: CurrencyRemoved(indexed address)
+          handler: handleCurrencyRemoved
+        - event: DesignerSplitSet(address,uint8,uint256)
+          handler: handleDesignerSplitSet
+        - event: FulfillerBaseSet(address,uint8,uint256)
+          handler: handleFulfillerBaseSet
+        - event: FulfillerSplitSet(address,uint8,uint256)
+          handler: handleFulfillerSplitSet
+        - event: OracleUpdated(indexed address,uint256)
+          handler: handleOracleUpdated
+        - event: TreasurySplitSet(address,uint8,uint256)
+          handler: handleTreasurySplitSet
+      file: ./src/pixel-splits.ts
+templates:
+  - name: GrantMetadata
+    kind: file/ipfs
+    mapping:
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/ds-handlers.ts
+      handler: handleGrantMetadata
+      entities:
+        - GrantMetadata
+      abis:
+        - name: NeonData
+          file: ./abis/NeonData.json
+  - name: CollectionMetadata
+    kind: file/ipfs
+    mapping:
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      file: ./src/ds-handlers.ts
+      handler: handleCollectionMetadata
+      entities:
+        - CollectionMetadata
+      abis:
+        - name: PixelDesignData
+          file: ./abis/PixelDesignData.json

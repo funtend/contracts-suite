@@ -1,0 +1,25 @@
+**/node_modules
+**/.DS_Store
+**/.env*.local
+**/.env
+**/.cache
+**/coverage
+**/coverage.json
+**/typechain
+**/typechain-types
+
+# The graph
+**/backup
+**/build
+
+# Matchstick
+**/tests/.bin
+**/tests/.latest.json
+
+# Hardhat files
+cache
+artifacts
+slither.output.log
+
+# Weekly Backup
+backup

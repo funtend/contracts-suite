@@ -1,0 +1,798 @@
+type ApprovalForAll @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes # address
+  account: Bytes # address
+  operator: Bytes # address
+  approved: Boolean # bool
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type ChildBurned @entity(immutable: true) {
+  id: Bytes!
+  childTokenId: BigInt # uint256
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type ChildTemplateCreated @entity(immutable: true) {
+  id: Bytes!
+  tokenId: BigInt # uint256
+  tokenURI: [String!]! # string[]
+  posterURI: String # string
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type ChildTemplateUpdated @entity(immutable: true) {
+  id: Bytes!
+  tokenId: BigInt # uint256
+  newTokenURI: [String!]! # string[]
+  newPosterURI: String # string
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type ParentIdAdded @entity(immutable: true) {
+  id: Bytes!
+  tokenId: BigInt # uint256
+  parentId: BigInt # uint256
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type TransferBatch @entity(immutable: true) {
+  id: Bytes!
+  operator: Bytes # address
+  from: Bytes # address
+  to: Bytes # address
+  ids: [BigInt!]! # uint256[]
+  values: [BigInt!]! # uint256[]
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type TransferSingle @entity(immutable: true) {
+  id: Bytes!
+  operator: Bytes # address
+  from: Bytes # address
+  to: Bytes # address
+  CanvasChildFGO_id: BigInt # uint256
+  value: BigInt # uint256
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type URI @entity(immutable: true) {
+  id: Bytes!
+  value: String # string
+  CanvasChildFGO_id: BigInt # uint256
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+type Approval @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes # address
+  approved: Bytes # address
+  tokenId: BigInt # uint256
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CanvasParentFGOApprovalForAll @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes # address
+  operator: Bytes # address
+  approved: Boolean # bool
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type FGOTemplateCreated @entity(immutable: true) {
+  id: Bytes!
+  parentTokenId: BigInt # uint256
+  parentURI: String # string
+  childTokenIds: [BigInt!]! # uint256[]
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type FGOTemplateUpdated @entity(immutable: true) {
+  id: Bytes!
+  parentTokenId: BigInt # uint256
+  newParentURI: String # string
+  childTokenIds: [BigInt!]! # uint256[]
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type ParentBurned @entity(immutable: true) {
+  id: Bytes!
+  parentTokenId: BigInt # uint256
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type Transfer @entity(immutable: true) {
+  id: Bytes!
+  from: Bytes # address
+  to: Bytes # address
+  tokenId: BigInt # uint256
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+type AccessControlUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldAccessControl: Bytes # address
+  newAccessControl: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type OracleUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldOracle: Bytes # address
+  newOracle: Bytes # address
+  updater: Bytes # address
+  bonsaiPrice: BigInt # uint256
+  rupiahPrice: BigInt # uint256
+  maticPrice: BigInt # uint256
+  daiPrice: BigInt # uint256
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+type PreRollCollectionAccessControlUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldAccessControl: Bytes # address
+  newAccessControl: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CanvasFulfillmentUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldCanvasFulfillment: Bytes # address
+  newCanvasFulfillment: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CanvasMarketUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldCanvasMarket: Bytes # address
+  newCanvasMarket: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CanvasPaymentUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldCanvasPayment: Bytes # address
+  newCanvasPayment: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CollectionAdded @entity(immutable: true) {
+  id: Bytes!
+  collectionId: BigInt # uint256
+  amount: BigInt # uint256
+  owner: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CollectionCreated @entity(immutable: true) {
+  id: Bytes!
+  collectionId: BigInt # uint256
+  uri: String # string
+  amount: BigInt # uint256
+  owner: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CollectionDeleted @entity(immutable: true) {
+  id: Bytes!
+  sender: Bytes # address
+  collectionId: BigInt # uint256
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CollectionDiscountUpdated @entity(immutable: true) {
+  id: Bytes!
+  collectionId: BigInt # uint256
+  discount: BigInt # uint256
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CollectionFulfillerIdUpdated @entity(immutable: true) {
+  id: Bytes!
+  collectionId: BigInt # uint256
+  oldFulfillerId: BigInt # uint256
+  newFulfillerId: BigInt # uint256
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CollectionNameUpdated @entity(immutable: true) {
+  id: Bytes!
+  collectionId: BigInt # uint256
+  oldName: String # string
+  newName: String # string
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CollectionPixelTypeUpdated @entity(immutable: true) {
+  id: Bytes!
+  collectionId: BigInt # uint256
+  oldPixelType: String # string
+  newPixelType: String # string
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CollectionPriceUpdated @entity(immutable: true) {
+  id: Bytes!
+  collectionId: BigInt # uint256
+  oldPrice: [BigInt!]! # uint256[]
+  newPrice: [BigInt!]! # uint256[]
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CollectionURIUpdated @entity(immutable: true) {
+  id: Bytes!
+  collectionId: BigInt # uint256
+  oldURI: String # string
+  newURI: String # string
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type PreRollNFTUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldPreRollNFT: Bytes # address
+  newPreRollNFT: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type TokensMinted @entity(immutable: true) {
+  id: Bytes!
+  collectionId: BigInt # uint256
+  uri: String # string
+  amountMinted: BigInt # uint256
+  tokenIdsMinted: [BigInt!]! # uint256[]
+  owner: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+type PreRollNFTAccessControlUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldAccessControl: Bytes # address
+  newAccessControl: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type PreRollNFTApproval @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes # address
+  approved: Bytes # address
+  tokenId: BigInt # uint256
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type PreRollNFTApprovalForAll @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes # address
+  operator: Bytes # address
+  approved: Boolean # bool
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type BatchTokenMinted @entity(immutable: true) {
+  id: Bytes!
+  to: Bytes # address
+  tokenIds: [BigInt!]! # uint256[]
+  uri: String # string
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type FulfillmentUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldFulfillment: Bytes # address
+  newFulfillment: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type PreRollCollectionUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldPreRollCollection: Bytes # address
+  newPreRollCollection: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type TokenBurned @entity(immutable: true) {
+  id: Bytes!
+  tokenId: BigInt # uint256
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type TokenFulfillerIdUpdated @entity(immutable: true) {
+  id: Bytes!
+  tokenId: BigInt # uint256
+  oldFulfillerId: BigInt # uint256
+  newFulfillerId: BigInt # uint256
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type PreRollNFTTransfer @entity(immutable: true) {
+  id: Bytes!
+  from: Bytes # address
+  to: Bytes # address
+  tokenId: BigInt # uint256
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+type CanvasMarketAccessControlUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldAccessControl: Bytes # address
+  newAccessControl: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CanvasMarketCanvasFulfillmentUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldCanvasFulfillment: Bytes # address
+  newCanvasFulfillment: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CanvasPKPsUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldCanvasPKPs: Bytes # address
+  newCanvasPKPs: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CanvasMarketCanvasPaymentUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldCanvasPayment: Bytes # address
+  newCanvasPayment: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type ChildFGOUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldChildFGO: Bytes # address
+  newChildFGO: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CompositeNFTUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldCompositeNFT: Bytes # address
+  newCompositeNFT: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CanvasMarketOracleUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldOracle: Bytes # address
+  newOracle: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type OrderCreated @entity(immutable: true) {
+  id: Bytes!
+  orderId: BigInt # uint256
+  prices: [BigInt!]! # uint256[]
+  totalPrice: BigInt # uint256
+  buyer: Bytes # address
+  fulfillmentInformation: String # string
+  sinPKP: Boolean # bool
+  pkpTokenId: String # string
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type PKPAddressUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldPKPAddress: Bytes # address
+  newPKPAddress: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type ParentFGOUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldParentFGO: Bytes # address
+  newParentFGO: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CanvasMarketPreRollCollectionUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldPreRollCollection: Bytes # address
+  newPreRollCollection: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CanvasMarketPreRollNFTUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldPreRollNFT: Bytes # address
+  newPreRollNFT: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type SubOrderIsFulfilled @entity(immutable: true) {
+  id: Bytes!
+  subOrderId: BigInt # uint256
+  fulfillerAddress: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type TokensBought @entity(immutable: true) {
+  id: Bytes!
+  preRollIds: [BigInt!]! # uint256[]
+  customIds: [BigInt!]! # uint256[]
+  preRollAmounts: [BigInt!]! # uint256[]
+  customAmounts: [BigInt!]! # uint256[]
+  chosenTokenAddress: Bytes # address
+  prices: [BigInt!]! # uint256[]
+  buyer: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type UpdateOrderDetails @entity(immutable: true) {
+  id: Bytes!
+  orderId: BigInt # uint256
+  newOrderDetails: String # string
+  buyer: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type UpdateOrderMessage @entity(immutable: true) {
+  id: Bytes!
+  orderId: BigInt # uint256
+  newMessageDetails: String # string
+  buyer: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type UpdateSubOrderStatus @entity(immutable: true) {
+  id: Bytes!
+  subOrderId: BigInt # uint256
+  newSubOrderStatus: String # string
+  buyer: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+type CanvasCompositeAccessControlUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldAccessControl: Bytes # address
+  newAccessControl: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CanvasCompositeApproval @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes # address
+  approved: Bytes # address
+  tokenId: BigInt # uint256
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CanvasCompositeApprovalForAll @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes # address
+  operator: Bytes # address
+  approved: Boolean # bool
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CanvasCompositeBatchTokenMinted @entity(immutable: true) {
+  id: Bytes!
+  to: Bytes # address
+  tokenIds: [BigInt!]! # uint256[]
+  uri: String # string
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type MarketUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldMarket: Bytes # address
+  newMarket: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CanvasCompositeTokenBurned @entity(immutable: true) {
+  id: Bytes!
+  tokenId: BigInt # uint256
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CanvasCompositeTransfer @entity(immutable: true) {
+  id: Bytes!
+  from: Bytes # address
+  to: Bytes # address
+  tokenId: BigInt # uint256
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+type CanvasFulfillmentAccessControlUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldAccessControl: Bytes # address
+  newAccessControl: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type FulfillerAddressUpdated @entity(immutable: true) {
+  id: Bytes!
+  fulfillerId: BigInt # uint256
+  newFulfillerAddress: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type FulfillerCreated @entity(immutable: true) {
+  id: Bytes!
+  fulfillerId: BigInt # uint256
+  fulfillerPercent: BigInt # uint256
+  fulfillerAddress: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type FulfillerPercentUpdated @entity(immutable: true) {
+  id: Bytes!
+  fulfillerId: BigInt # uint256
+  newFulfillerPercent: BigInt # uint256
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+type CanvasSubscriptionAccessControlUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldAccessControl: Bytes # address
+  newAccessControl: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CanvasSubscriptionCanvasPKPsUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldCanvasPKPs: Bytes # address
+  newCanvasPKPs: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CanvasSubscriptionPKPAddressUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldPKPAddress: Bytes # address
+  newPKPAddress: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type SubscriberAdded @entity(immutable: true) {
+  id: Bytes!
+  subscriberId: BigInt # uint256
+  tokenId: String # string
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type SubscriberReactivated @entity(immutable: true) {
+  id: Bytes!
+  subscriberId: BigInt # uint256
+  tokenId: String # string
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type SubscriberRemoved @entity(immutable: true) {
+  id: Bytes!
+  subscriberId: BigInt # uint256
+  tokenId: String # string
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+type CanvasPreludePointsAccessControlUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldAccessControl: Bytes # address
+  newAccessControl: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type NewMissionSignUp @entity(immutable: true) {
+  id: Bytes!
+  participantId: BigInt # uint256
+  participantAddress: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type CanvasPreludePointsPKPAddressUpdated @entity(immutable: true) {
+  id: Bytes!
+  oldPKPAddress: Bytes # address
+  newPKPAddress: Bytes # address
+  updater: Bytes # address
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type ParticipantMissionReference @entity(immutable: true) {
+  id: Bytes!
+  participantAddress: Bytes # address
+  missionsCompleted: BigInt # uint256
+  totalPoints: BigInt # uint256
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type PointsPerMissionSet @entity(immutable: true) {
+  id: Bytes!
+  missionNumbers: [BigInt!]! # uint256[]
+  pointScores: [BigInt!]! # uint256[]
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}
+
+type TotalMissionsSet @entity(immutable: true) {
+  id: Bytes!
+  missionNumber: BigInt # uint256
+  blockNumber: BigInt
+  blockTimestamp: BigInt
+  transactionHash: Bytes
+}

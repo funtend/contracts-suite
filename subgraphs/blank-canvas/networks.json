@@ -1,0 +1,44 @@
+{
+  "matic": {
+    "CanvasChildFGO": {
+      "address": "0x6cc8BfE94c056F535dd64d6Eb3faBAAb641816Eb",
+      "startBlock": 57426481
+    },
+    "CanvasParentFGO": {
+      "address": "0xa2c02358b1B1e8dD7Be19f2159207d2f6EE3ecEc",
+      "startBlock": 57426483
+    },
+    "CanvasOracle": {
+      "address": "0x9cf4BB7054A077DeC29A7d25A55dFb87F6eF1508",
+      "startBlock": 57427768
+    },
+    "PreRollCollection": {
+      "address": "0x72592B2A3C7DA7902b9bb076527af9B49a886dB2",
+      "startBlock": 57426491
+    },
+    "PreRollNFT": {
+      "address": "0x12443c19c8B9312268C20d76166D56342d8134a8",
+      "startBlock": 57426490
+    },
+    "CanvasMarket": {
+      "address": "0x4c5bC151f02Bc64d1B8A7EA7F30F05a0dAD8e8B9",
+      "startBlock": 57426497
+    },
+    "CanvasComposite": {
+      "address": "0x3E8DB8a5e606495e8bCFA1b5cB45769a9c05f9E7",
+      "startBlock": 57426478
+    },
+    "CanvasFulfillment": {
+      "address": "0x452fe81bcf83708b99179c381276F72D09306188",
+      "startBlock": 57426480
+    },
+    "CanvasSubscription": {
+      "address": "0x67eb9c26041270EB74F34260f48680EB5ff6728F",
+      "startBlock": 57426495
+    },
+    "CanvasPreludePoints": {
+      "address": "0x1b34d01E67c1335825cAe4994bfae4C29317C7C1",
+      "startBlock": 57426496
+    }
+  }
+}

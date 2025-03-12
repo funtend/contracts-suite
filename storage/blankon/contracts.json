@@ -1,0 +1,14 @@
+[
+  {
+    "accessControl": "0x27c31B9C11A3E42e95C29861C763A01AC217f435",
+    "blankonPayment": "0xE5B67e93B2A48738772FBBBE1aE3424F9C540fa2",
+    "blankonNFT": "0x66A26425222c16F7Df8fcDE624aDd063d3Ba1039",
+    "blankonCollection": "0x00CAE81283005CbBE513547cab389Eb25fb0dC74",
+    "blankonDrop": "0x01cCAb37527283965E9fBd9F582F849b9f0f4140",
+    "blankonMarketplace": "0x0ddC366B397B71Bc51E0bDd1B98F8481755059B4",
+    "blankonEscrow": "0x68b5B493e2C50659677bB78fb28D413D73f9e8a3"
+  },
+  {
+    "disket": "0x6095a6b95fA69f66841F933EF0a6d7DefA172286"
+  }
+]

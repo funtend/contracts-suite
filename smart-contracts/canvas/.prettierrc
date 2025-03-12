@@ -1,0 +1,28 @@
+{
+  "endOfLine": "lf",
+  "semi": false,
+  "singleQuote": false,
+  "trailingComma": "none",
+  "plugins": [
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-solidity"
+  ],
+  "overrides": [
+    {
+      "files": "*.sol",
+      "options": {
+        "printWidth": 80,
+        "tabWidth": 2,
+        "useTabs": false,
+        "singleQuote": false,
+        "bracketSpacing": false
+      }
+    },
+    {
+      "files": "*.ts",
+      "options": {
+        "printWidth": 80
+      }
+    }
+  ]
+}
